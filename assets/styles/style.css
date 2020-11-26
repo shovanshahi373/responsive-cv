@@ -1,0 +1,255 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html {
+  font-size: 14px;
+  font-family: "Inconsolata", monospace;
+}
+
+:root {
+  --black: #51515f;
+  --blue: #628ff2;
+  --light-black: #bbbbc7;
+  --top-section-height: 120px;
+}
+
+body {
+  background-color: white;
+  min-height: 100vh;
+  background-image: radial-gradient(circle, transparent, var(--blue));
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main-content {
+  display: flex;
+}
+
+.container {
+  width: 70%;
+  min-height: 150px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ccc;
+}
+
+.main-header {
+  display: flex;
+}
+
+.main-content > div:first-child {
+  flex: 1;
+  background-color: var(--light-black);
+}
+
+.main-content > div:last-child {
+  flex: 1.5;
+}
+
+.main {
+  padding-left: 10px;
+}
+.sidebar-main {
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-pic {
+  height: var(--top-section-height);
+  flex: 1;
+  background-image: url("../images/avatar.png");
+  background-size: 15vmax;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--black);
+}
+
+ul li {
+  border-left: 5px solid var(--blue);
+  margin-bottom: 5px;
+  padding-left: 5px;
+}
+
+#contact,
+#education {
+  flex: 1;
+}
+
+#contact li,
+#education li {
+  background-color: #ccc;
+}
+
+h1 {
+  border: 1px solid var(--black);
+  padding: 10px;
+  font-size: clamp(1rem, 0.5rem, 2rem);
+  text-transform: uppercase;
+  color: var(--black);
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+h1.author {
+  position: relative;
+  flex: 2;
+  font-size: clamp(1.5rem, 1rem, 2.5rem);
+  font-weight: bold;
+  letter-spacing: 2px;
+  height: var(--top-section-height);
+  border-width: 5px;
+  margin-top: 0;
+}
+
+section h1:hover {
+  background-color: var(--black);
+  color: white;
+}
+
+h1.author::before {
+  position: absolute;
+  content: "";
+  border: 15px solid #ccc;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  top: 50%;
+  left: 0%;
+  transform: translate(-100%, -50%);
+}
+
+table {
+  empty-cells: show;
+  width: 100%;
+}
+
+.skill-meter {
+  position: relative;
+  display: inline-block;
+  background-color: var(--light-black);
+  height: 10px;
+  width: 90px;
+}
+
+.skill-meter-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--blue);
+  height: 100%;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+}
+
+.toggle-group {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  flex: 1;
+  text-align: end;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.toggle-group:hover {
+  opacity: 1;
+}
+
+.project {
+  background-color: var(--light-black);
+  padding: 10px;
+  border-left: 5px solid var(--blue);
+}
+.project:hover {
+  background-color: var(--blue);
+}
+.project:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.project:not(:last-child) {
+  margin-bottom: 20px;
+}
+.project-title {
+  position: relative;
+  cursor: pointer;
+}
+
+.project-desc {
+  transition: 0.5s;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.project-desc.active {
+  max-height: 1000px;
+}
+
+.project-title::after {
+  position: absolute;
+  content: url("../images/plus.svg");
+  height: 100%;
+  width: 10px;
+  display: none;
+  top: 50%;
+  right: 0%;
+  transform: translateY(-50%);
+}
+.project-title:hover::after {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 875px) {
+  .sidebar-main {
+    padding: 0px 10px;
+    flex-direction: row;
+    column-gap: 10px;
+  }
+  .main-content {
+    flex-direction: column;
+  }
+  .main-content > div:first-child {
+    width: 100%;
+  }
+  .main-content > div:last-child {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 685px) {
+  .container {
+    width: 80%;
+  }
+  .sidebar-main {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .container {
+    width: 98%;
+  }
+}
+
+@media only screen and (min-width: 875px) {
+  .main-content > div:first-child {
+    background-image: url("../images/vector-art.png");
+    background-size: 100%;
+    background-position: -65px 100%;
+    background-repeat: no-repeat;
+    background-blend-mode: color-burn;
+  }
+}
