@@ -38,6 +38,11 @@ body {
   margin: 20px auto;
   padding: 20px;
   background-color: #ccc;
+  transition: 0.5s;
+  opacity: 0;
+  animation-name: scaleUp;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .main-header {
@@ -226,6 +231,11 @@ table {
   }
   .main-content > div:last-child {
     width: 100%;
+  }
+}
+@keyframes scaleUp {
+  to {
+    opacity: 1;
   }
 }
 
